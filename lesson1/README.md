@@ -24,7 +24,7 @@
     |-- package-lock.json                // npm自动生成，用于帮助package的统一性设置的，yarn也有相同的操作  
     |-- package.json                     // npm包管理配置文件  
 
-5. 常用配置
+5. 常用配置   
 a. ip和端口  /package.json   
 ```
 "config":{
@@ -44,5 +44,21 @@ b. 全局样式的配置  /nuxt.config.js
 c. 配置webpack的loader     
 在nuxt.config.js里是可以对webpack的基本配置进行覆盖的  在build下可进行对应的配置     
 
-6. Nuxt的路由配置和参数传递  
+6. Nuxt的路由配置和参数传递    
+a. 路由的跳转    
+```
+<nuxt-link :to="{name: 'index'}"></nuxt-link>
+```
 
+b. 路由传参  和vue基本一致   
+
+c. 动态路由  
+动态路由以page文件夹下 _params.vue 为模板名称  
+路由校验    
+```
+export default {
+  validate({params}) {
+    return /^\d+$/.test(params.newsId)
+  }
+}
+``` 

@@ -97,3 +97,46 @@ a. 默认模板: 根目录下建立  app.js
     head 中的内容不用添加， 使用  {{HEAD}}  引入
     添加的内容是 {{APP}} 来表示
 
+b. 默认布局  layouts/default.vue
+
+9. 错误页面  layouts/error.vue  页面  
+    可根据 props 中的 error  来判断  error.statusCode === 404 来做页面装填判断
+
+10. title 和 content 独立设置   
+<nuxt-lick :to="{name: 'news-id', params: {id: 123, title: '资讯详情'}}"></nuxt-link>   
+
+data() {   
+    return{   
+        title: $toute.params.title   
+    }   
+},   
+head() {   
+    return{   
+        title: this.title,  
+        meta: [    
+            <!-- hid为唯一标识，想覆盖全局的必须写相同的唯一标示 -->   
+            {hid: 'aaa', name: 'news1', content: 'tree new bee'}   
+        ]   
+    }  
+}   
+
+11. asyncData的使用
+```
+asyncData() {
+    return axios.get('/api/news')
+           .then( res => {
+               return {info: res.data}
+           })
+}
+
+async asyncData() {
+    let {data} = await axios.get('/api);
+    return {info: data}
+}
+```
+
+12. 打包 npm run generate
+
+
+
+

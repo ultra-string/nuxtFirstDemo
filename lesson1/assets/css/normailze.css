@@ -1,3 +1,22 @@
 html{
   color: aqua;
 }
+
+
+/* 全局的过载动画 */
+.page-enter-active, page-leave-active {
+  transition: opacity 2s;
+}
+.page-enter, page-leave-active {
+  opacity: 0;
+}
+
+/* 局部的路由 */
+.test-enter-active, test-leave-active {
+  transition: all 2s;
+  font-size: 12px;
+}
+.test-enter, test-leave-active {
+  opacity: 0;
+  font-size: 40px;
+}

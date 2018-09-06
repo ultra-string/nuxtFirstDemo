@@ -17,7 +17,7 @@
 <script>
 
 export default {
-
+  transition: 'test'
 }
 </script>
 

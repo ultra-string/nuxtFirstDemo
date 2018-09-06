@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p>我是vue，到底谁最强</p>
     <nuxt/>
   </div>
 </template>

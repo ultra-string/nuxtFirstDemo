@@ -62,3 +62,38 @@ export default {
   }
 }
 ``` 
+
+7. 路由切换的动画效果  
+a. 全局添加  编写css动画  
+注意，需要使用nuxt-link跳转才会添加动画   
+```
+.page-enter-active, page-leave-active {
+  transition: opacity 2s;
+}
+.page-enter, page-leave-active {
+  opacity: 0;
+}
+```
+
+b. 局部动画  使用 name 代替 page  ，并在对应页面中添加 transition: 'test' 属性指定使用这个动画   
+```
+.test-enter-active, test-leave-active {
+  transition: all 2s;
+  font-size: 12px;
+}
+.test-enter, test-leave-active {
+  opacity: 0;
+  font-size: 40px;
+}
+
+export default {
+  transition: 'test'
+}
+```
+
+8. 默认模板和默认布局  
+
+a. 默认模板: 根目录下建立  app.js  
+    head 中的内容不用添加， 使用  {{HEAD}}  引入
+    添加的内容是 {{APP}} 来表示
+
